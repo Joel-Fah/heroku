@@ -1,1 +1,1 @@
-web: gunicorn TheGenuines --log-file -
+web: gunicorn TheGenuines.wsgi
