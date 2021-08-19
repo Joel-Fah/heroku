@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-m0)&=&94de#pdy(r^&cd47-n#l!g0z+=&ryv4h+1$ppm(givsx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.43.95', '127.0.0.1', 'thegenuinesweb.herokuapp.com']
+ALLOWED_HOSTS = ['192.168.43.95', '127.0.0.1'] #other servers: 'thegenuinesapp.herokuapp.com'
 
 
 # Application definition
@@ -46,7 +46,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'TheGenuines.wsgi.application'
 
 DATABASES = {
     # Use this configuration for sqlite database
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
     
     # Use this configuration for PHPMYadmin/Wampserver/MySQL database
     # 'default': {
@@ -96,6 +96,16 @@ DATABASES = {
     #     'HOST': 'localhost',
     #     'PORT': '3306',
     # }
+    
+    # Use this configuration for postgressql database
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'thegenuines',
+        'USER': 'postgres',
+        'PASSWORD': 'Ec@n@mics1@',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
 
 
@@ -135,7 +145,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
